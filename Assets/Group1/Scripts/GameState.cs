@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    private EnemiesCounter _enemies;
-    private GameOverPanel _gameOverPanel;
-    private Player _player;
-
-    private void Awake()
-    {
-        _enemies = FindObjectOfType<EnemiesCounter>();
-        _player = FindObjectOfType<Player>();
-        _gameOverPanel = FindObjectOfType<GameOverPanel>();
-    }
+    [SerializeField] private EnemiesCounter _enemies;
+    [SerializeField] private GameOverPanel _gameOverPanel;
+    [SerializeField] private Player _player;
 
     private void OnEnable()
     {

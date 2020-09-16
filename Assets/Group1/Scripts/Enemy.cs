@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        _targetPosition = Random.insideUnitCircle * _motionRadius;
+        _targetPosition = SetRandomPosition();
     }
 
     private void FixedUpdate()
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _targetPosition, _speed * Time.deltaTime);
         if (transform.position == _targetPosition)
         {
-            _targetPosition = Random.insideUnitCircle * _motionRadius;
+            _targetPosition = SetRandomPosition();
         }
     }
 
@@ -34,5 +34,10 @@ public class Enemy : MonoBehaviour
             player.Accelerate();
             gameObject.SetActive(false);
         }
+    }
+
+    private Vector3 SetRandomPosition()
+    {
+        return Random.insideUnitCircle * _motionRadius;
     }
 }

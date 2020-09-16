@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 [RequireComponent(typeof(PlayerMover))]
 public class Player : MonoBehaviour
 {
@@ -32,12 +33,9 @@ public class Player : MonoBehaviour
 
     private IEnumerator StartAccelerate(float duration)
     {
+        WaitForSeconds waitForDiration = new WaitForSeconds(duration);
         _mover.SpeedUp();
-        while (duration > 0)
-        {
-            duration -= Time.deltaTime;
-            yield return null;
-        }
+        yield return waitForDiration;
         _mover.SpeedDown();
     }
 }
